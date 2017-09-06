@@ -1,0 +1,90 @@
+I. python OOP
+			a. considered revolutionary
+			b. time saver
+			c. avoids repeating code
+			d. improves maintenance
+	A. goals
+		1. Objects and classes
+		2. class structure
+		3. instantiation
+		4. attributes
+		5. methods
+		6. init
+	B. good for computer games (age of empires)
+		1. create buildings soldiers people, units can fite each other
+		2. plan what it does
+		 	a. temple
+		 	b. barracks
+		 		A) health
+		 		B) create soldiers
+			 		1) move
+			 		1) destroy
+		 	c. farm
+		 		A) health
+		 		B) capacity food/day
+		 3. class map of what you want to do
+		 	a. class
+			 	b. has
+			 		A) attributes
+			 	d. can do
+			 		A) method
+			c. object
+				a. instance of an object.  has own x, y
+				b. has funcitons, dos and hases
+				c. don't want self destruction make it but private method or attribute
+					A) no longer accessed by the instance-maybe self-destruct above?
+					B) default is often public available within the class and to the instance
+				d. constructore methods ran when new instance is constructed like health and magic in age of empries
+				e. destructore- run when object is errasesd from meory (food need?)
+				f. how can upgrade do all the previous one can but it has more additional attributes and methods
+					A) new class that inherit fro parant class
+					B) private methods cannot be inheretad
+					C) protected class is carrier but hidden from user- like private 
+
+	C. blueprint for reproduction of objects
+		1. gameas are a good soource but used in web development as well.
+		2. create many copies of the same or similar objects
+		3. key to django
+	D. build users
+		1.avoid starting from scratch for each user
+			a. think what attributes (track?) and actions are common to all users.
+		2. create a class in python by typing class ClassName(object)
+			a. defined with 1 parameter object
+				A) means it inherets from the class object
+			b. create an instance anna = User()
+				A) if printed we see object it belongs to and where it is stored in memory
+			c. attributes
+				A) char shared by all instances of the class type. all users have a name and an email in users {{{{a value}}}} in the object
+			d. Methods
+				A) actions that an object can perform. Users might purchase--a function that belongs to an class   {{{{{{{THings it can do}}}}}}} for users purchase login logout register
+		3. objects
+			a. store methods and attributes
+		4. delcare __init__method
+			a. called for every new object
+			b. passing parameters go into init.  so User("anna", "anna@anna.com")
+			c. magic method sets some attributes with a new
+		5. declare self method
+			a. used for login but more complicated done in flask later
+			b. first parameter in method was self: def login(self, id)
+				A) true for any method created ergo we don't need to pass this it is implicit
+		6. two objects created identical are different becuae they are stored in different places in the memory.
+		
+
+In progress update of users
+
+# declare a class and give it name User
+class User(object):
+    # the __init__ method is called every time a new object is created
+    def __init__(self, name, email):
+        # set some instance variables. just like any variable we can call these anything
+        self.name = name
+        self.email = email
+        self.logged = False
+    # this is a method we created to help a user login
+    def login(self):
+        self.logged = True
+        print self.name + " is logged in."
+        return self
+#now create an instance of the class
+new_user = User("Anna","anna@anna.com")
+print new_user.email
